@@ -1,15 +1,94 @@
 /* ================================= 
+  Photo Overlay Transitions
+==================================== */
+
+.photo-overlay {
+	opacity: 0;
+	transition: opacity .5s;
+}
+.photo-overlay:hover {
+	opacity: 1;
+}
+
+/* ================================= 
   Button Transitions
 ==================================== */
 
 .button {
-	transition: background .3s;
+	transition: background .3s, color .3s;
 }
+
 .button:hover {
-	background: rgba(74,137,202, 1);
+	color: #fff;
+	background: #4a89ca;
 }
 
 /* ================================= 
+  Image Transforms & Transitions
+==================================== */
+
+/* -- Row 1 --------- */
+
+.img {
+	transition: transform .5s;
+}
+
+.img:hover {
+	transform: rotate(-5deg) scale(1.2) translateY(-20px);
+}
+
+/* -- Row 2 --------- */
+
+.photo img {
+	transform-origin: 0 0;
+}
+
+.photo:hover img {
+	transform: scale(1.2);
+}
+
+/* -- Row 3 --------- */
+.slide .photo-overlay,
+.slide img{
+  transition: transform .6s cubic-bezier(.35,-1.68,.48,1.88);
+}
+
+.slide .photo-overlay{
+  transform: translateX(-100%);
+}
+
+.slide:hover .photo-overlay{
+  transform: translateX(0);
+}
+
+.slide:hover img {
+  transform: translateX(100%);
+}
+/* -- Download Icon ---------- */
+.slide .button:hover {
+  background: rgba(74, 137, 202, 1);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .7);
+}
+
+.btn-icon{
+  transition-property: opacity, left;
+  transition-duration: .5s;
+  transition-delay: .3s; 
+  transition-timing-function: ease-out;
+}
+
+.button:hover .btn-icon {
+  opacity: 1;
+  left: 80%;
+}
+/* -- Logo ---------- */
+
+.logo:hover {
+	transform: scale(1.5) rotate(-5deg);
+  transform-origin: 50% 50%;
+}
+
+/* =================================
   Photo 3D Transforms & Transitions
 ==================================== */
 

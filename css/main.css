@@ -42,7 +42,6 @@ p {
 ==================================== */
 
 /* ---- Layout Containers ---- */
-
 .container,
 .content {
 	margin: auto;
@@ -50,17 +49,28 @@ p {
 .container {
 	width: 94.02985075%;
 	max-width: 1260px;
-	padding: 0 2.25em 4em;
+  padding: 0 2.25em 4em;
 	background: #fff;
+	margin: auto;
 }
 .main-header {
 	text-align: center;
-	padding: 2.8em 0 3.8em;
+	padding: 2.8em 0;
 }
 .cube-container {
 	max-width: 200px;
 	text-align: center;
 	margin: 0 auto 4.5em;
+}
+.photo-container {
+	text-align: center;
+	margin-bottom: 4em;
+}
+.original-pos {
+	background-color: lightgrey;
+	height: 100%;
+	display: block;
+	line-height: 0;
 }
 /* ---- Page Elements ---- */
 
@@ -79,21 +89,70 @@ p {
 	margin-bottom: .4em;
 	cursor: pointer;
 }
+.photo {
+	position: relative;
+	line-height: 0;
+	margin-bottom: 2em;
+	overflow: hidden;
+}
+.photo-container img {
+ 	max-width: 100%;
+}
+.btn-icon {
+	opacity: 0;
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	background: url('../img/download.svg');
+	position: absolute;
+	left: 45%;
+	top: 27%;
+}
+/* ---- Photo Overlay ---- */
 .button {
-	font-size: .8em;
-	color: #fff;
-	width: 90%;
-	line-height: 1.15;
+	color: #4a89ca;
+	width: 70%;
 	font-weight: 700;
 	display: block;
 	text-decoration: none;
 	text-transform: uppercase;
-	padding: .95em 0;
+	padding: 10px 0;
+	border: 2px solid #4a89ca;
 	border-radius: .5em;
-	background: rgba(74,137,202, .8);
 	margin: auto;
+  position: relative;
 }
 /* ---- Photo Overlay ---- */
+
+.photo-overlay {
+	color: #fff;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0; 
+	left: 0;
+	padding-left: 20px;
+	padding-right: 20px;
+
+	display: flex; /* For centering text inside .photo-overlay */
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0,0,0, .5);
+}
+.photo-overlay h3 {
+	margin-top: 0;
+}
+.slide .button {
+	color: #fff;
+	padding: 20px 0;
+	background: rgba(74,137,202, .8);
+	margin: 0;
+}
+.slide .photo-overlay {
+	opacity: 1;
+	background: #345d88;
+}
 
 .photo-desc {
 	font-size: .85em;
@@ -113,13 +172,39 @@ p {
   Media Queries
 ==================================== */
 
+@media (min-width: 0) and (max-width: 768px) {
+	.container {
+		padding: 0 1.225em 2.5em;
+	}
+}
 @media (min-width: 769px) {
+	.container {
+		padding: 0 2.25em 3em;
+	}
+	.photo-container {
+		width: 48%;
+		float: left;
+		margin-left: 4%;
+	}
 	.cube-container {
 		float: left;
 		margin-left: 16.6%;
 	}
 }
-@media (min-width: 1025px) {
+@media (min-width: 769px) and (max-width: 1024px) { 
+	.photo-container:nth-child(2n+1) {
+		margin-left: 0;
+		clear: left;
+	}
+}
+@media (min-width: 1025px) { 
+	.photo-container {
+		width: 30.63973064%;
+	}
+	.photo-container:nth-child(3n+1) {
+		margin-left: 0;
+		clear: left;
+	}
 	.cube-container:first-child {
 		margin-left: 0;
 	}
